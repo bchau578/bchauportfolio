@@ -2,6 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import './HomePage.css'
 import brandonPhoto from './Photos/brandon.jpg';
 import Navbar from '../Layout/Navbar';
+import headshot from './Photos/picture.jpg'
+import archerIcon from './Photos/archerIcon.png'
+import ecotectureIcon from './Photos/ecotectureIcon.png'
+import dataIcon from './Photos/dataIcon.png'
+import beerIcon from './Photos/BeerIcon.png'
+import pokemonIcon from './Photos/pokeIcon.png'
+import basketballIcon from './Photos/basketballIcon.png'
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState('NETL');
   const [contentVisible, setContentVisible] = useState(true);
@@ -20,7 +27,7 @@ const HomePage = () => {
         '● Built and fine-tuned transformer-based LLMs using PyTorch and Hugging Face Transformers, enabling automated extraction of materials properties and reducing manual review time by 50% for R&D teams.',
         '● Processed and cleaned over 2M experimental records using Pandas, creating structured datasets that accelerated model training and reduced data preprocessing time by 70%. ',
       ],      
-      skills: ['Python', 'TensorFlow', 'Data Analysis', 'Research']
+      skills: ['Python', 'PyTorch', 'Data Analysis', 'Research','Data Curation', 'Data Pipeline','Ontology Development'],
     },
     'Develop For Good': {
       title: 'Develop For Good',
@@ -57,71 +64,51 @@ const HomePage = () => {
     }
   };
 
-  // Project data - replace with your actual project information
-  const projectScreenshots = [
-    {
-      id: 1,
-      title: 'EcoTecture',
-      image: '/api/placeholder/800/400',
-      description: 'A environmental health safety grading application.'
-    },
-    {
-      id: 2,
-      title: 'Las Vegas Planner',
-      image: '/api/placeholder/800/400',
-      description: 'An online planner that helps plan your trips to Las Vegas.'
-    },
-    {
-      id: 3,
-      title: 'On Tap',
-      image: '/api/placeholder/800/400',
-      description: 'Interactive coding learning platform'
-    },
-    {
-      id: 4,
-      title: 'Data Visualization Tool',
-      image: '/api/placeholder/800/400',
-      description: 'Advanced analytics dashboard'
-    }
-  ];
 
   const projects = [
     {
       id: 1,
-      title: 'Algorithim Visualizer',
+      title: 'EcoTecture',
       description: 'An interactive web application that helps users understand algorithms through beautiful visual animations and step-by-step demonstrations.',
-      githubUrl: 'https://github.com/brandonchau578/AlgorithmVisualizer'
+      githubUrl: 'https://github.com/brandonchau578/EcoTecture',
+      icon: ecotectureIcon
     },
     {
       id: 2,
-      title: 'Realm Roster',
-      description: 'Realm Roster is a web app that lets users create, manage, and view fantasy-themed character profiles like species, class, and name for a collaborative MMO-style guild roster.',
-      githubUrl: 'https://github.com/brandonchau578/RealmRoster'
+      title: 'Algorithim Visualizer',
+      description: 'An interactive web application that helps users understand algorithms through beautiful visual animations and step-by-step demonstrations.',
+      githubUrl: 'https://github.com/brandonchau578/AlgorithmVisualizer',
+      icon: dataIcon
     },
     {
       id: 3,
-      title: 'On Tap',
-      description: 'On Tap is a mobile app that helps users discover, track, and rate local craft beers and breweries nearby.',
-      githubUrl: 'https://github.com/brandonchau578/OnTap'
+      title: 'Realm Roster',
+      description: 'Realm Roster is a web app that lets users create, manage, and view fantasy-themed character profiles like species, class, and name for a collaborative MMO-style guild roster.',
+      githubUrl: 'https://github.com/brandonchau578/RealmRoster',
+      icon: archerIcon
     },
     {
       id: 4,
-      title: 'E-commerce Platform',
-      description: 'Modern e-commerce solution with payment integration and inventory management.',
-      githubUrl: 'https://github.com/yourusername/ecommerce'
+      title: 'On Tap',
+      description: 'On Tap is a mobile app that helps users discover, track, and rate local craft beers and breweries nearby.',
+      githubUrl: 'https://github.com/brandonchau578/OnTap',
+      icon:beerIcon
     },
     {
       id: 5,
-      title: 'Chat Application',
-      description: 'Real-time chat application with file sharing and group messaging capabilities.',
-      githubUrl: 'https://github.com/yourusername/chat-app'
+      title: 'PokeGPT',
+      description: 'A Pokemon LLM that tells you about card pricing',
+      githubUrl: 'https://github.com/brandonchau578/PokePal',
+      icon: pokemonIcon
     },
     {
       id: 6,
-      title: 'Machine Learning Toolkit',
-      description: 'Python toolkit for data preprocessing and model evaluation in machine learning projects.',
-      githubUrl: 'https://github.com/yourusername/ml-toolkit'
-    }
+      title: 'NBA Analytics Pipeline',
+      description: "A Data Pipeline using NBA's API to fetch real time data",
+      githubUrl: 'https://github.com/brandonchau578/NBAPipeline',
+      icon:basketballIcon
+    },
+   
   ];
 
   useEffect(() => {
@@ -163,31 +150,9 @@ const HomePage = () => {
     };
   }, []);
 
-  // Auto-advance carousel
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!isTransitioning) {
-        nextSlide();
-      }
-    }, 4000); // Change slide every 4 seconds
 
-    return () => clearInterval(timer);
-  }, [isTransitioning, projectScreenshots.length]);
   
-  // Handle tab change animations
-  useEffect(() => {
-    if (contentRef.current) {
-      // Hide content first
-      setContentVisible(false);
-      
-      // After a short delay, make content visible again
-      const timer = setTimeout(() => {
-        setContentVisible(true);
-      }, 300); // Short delay for better UX
-      
-      return () => clearTimeout(timer);
-    }
-  }, [activeTab]);
+  
   
   // Simplified handler for tab clicks
   const handleTabClick = (e, key) => {
@@ -250,32 +215,7 @@ const HomePage = () => {
       element.classList.remove('clicked');
     }, 500);
   };
-
-  // Enhanced carousel navigation functions with transition handling
-  const nextSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prevSlide) => 
-      prevSlide === projectScreenshots.length - 1 ? 0 : prevSlide + 1
-    );
-    setTimeout(() => setIsTransitioning(false), 500); // Match transition duration
-  };
-
-  const prevSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prevSlide) => 
-      prevSlide === 0 ? projectScreenshots.length - 1 : prevSlide - 1
-    );
-    setTimeout(() => setIsTransitioning(false), 500); // Match transition duration
-  };
-
-  const goToSlide = (index) => {
-    if (isTransitioning || index === currentSlide) return;
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsTransitioning(false), 500); // Match transition duration
-  };
+  
   
   // Function to render description content based on active tab
   const renderDescription = () => {
@@ -305,37 +245,37 @@ const HomePage = () => {
       <Navbar />
       <div className="introContainer fade-in-section">
         <div className="introductionParagraph">
+          <img className="headshot" src = {headshot}></img>
           <div className="introContent">
             <span className='introTitle'>
-              hi,  
-              <span className="introName"> brandon </span>
-              here. 
+              Hi,  
+              <span className="introName"> Brandon </span>
+              here! 
             </span>
             <span className="cursorBlinking">|</span>
           </div>
-          <h2 className="introContent">I create cool things here and there</h2>
           <p className="introContent">I'm a research engineer intern from Irvine, California. I'm fascinated by large-scale, high impact products and hoping to contribute to major feature launches in industry-leading services.</p>
         </div>
       </div>
       
       <div id="experienceSection" className="fade-in-section ">
-        <div className="section-header" id ="About">
-          <span className="section-title">/ about me</span>
+        <div className="section-header">
+          <span className="section-title">About Me</span>
         </div>
         
         {/* New flex container for side-by-side layout */}
         <div className="aboutContentWrapper">
           {/* Left side: Text content */}
           <div className="aboutDescription">
-            <p>I am currently a <b>Machine Learning Research Engineer Intern</b> at, <a href="https://netl.doe.gov/">National Energy Technology Laboratory</a>, working in the research sector under material science. At the same time, I am undertaking a part-time Master's of Science in Software Engineering at California State University, Fullerton.</p>
+            <p>I am currently a <b>Machine Learning Research Engineer Intern</b> at, <a id= "NETL" href="https://netl.doe.gov/">National Energy Technology Laboratory</a>, working in the research sector under material science. At the same time, I recently finished my Master's of Science in Software Engineering at California State University, Fullerton.</p>
             <p>Here are some technologies I have been working with:</p>
             <div className="techStackContainer">
               <div className="techStackGrid">
                 <div className="techItem fade-in-section" data-delay="0">
-                  <span>JavaScript</span>
+                  <span>MERN</span>
                 </div>
                 <div className="techItem fade-in-section" data-delay="1">
-                  <span>React.js</span>
+                  <span>PostgreSQL</span>
                 </div>
                 <div className="techItem fade-in-section" data-delay="2">
                   <span>Python</span>
@@ -344,10 +284,10 @@ const HomePage = () => {
                   <span>SparQL</span>
                 </div>
                 <div className="techItem fade-in-section" data-delay="4">
-                  <span>C++</span>
+                  <span>Flask</span>
                 </div>
                 <div className="techItem fade-in-section" data-delay="5">
-                  <span>C#</span>
+                  <span>Unity</span>
                 </div>
               </div>
               <p>Outside of work, I'm interested in following the developments of new technology. I also play a lot of video/board/card games. And I love cooking.</p>
@@ -364,7 +304,7 @@ const HomePage = () => {
         <div className="experienceSection">
           <div className='fade-in-section'>
             <div className="section-header" id ="Experience">
-              <span className="section-title">/ experience</span>
+              <span className="section-title">Experience</span>
             </div>
             
             <div className="experience-content-wrapper">
@@ -429,51 +369,10 @@ const HomePage = () => {
         {/* Projects Section */}
         <div className="projectsSection fade-in-section">
           <div className="section-header" id ="Projects">
-            <span className="section-title">/ projects</span>
+            <span className="section-title"> My Projects</span>
           </div>
           
-          {/* Project Screenshots Carousel */}
-          <div className="carousel-container fade-in-section">
-            <div className="carousel-wrapper">
-              <button className="carousel-btn carousel-btn-prev" onClick={prevSlide}>
-                &#8249;
-              </button>
-              
-              <div className="carousel-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                {projectScreenshots.map((screenshot, index) => (
-                  <div 
-                    key={screenshot.id}
-                    className="carousel-slide"
-                  >
-                    <img 
-                      src={screenshot.image} 
-                      alt={screenshot.title}
-                      className="carousel-image"
-                    />
-                    <div className="carousel-caption">
-                      <h3>{screenshot.title}</h3>
-                      <p>{screenshot.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <button className="carousel-btn carousel-btn-next" onClick={nextSlide}>
-                &#8250;
-              </button>
-            </div>
-            
-            {/* Carousel Indicators - Now as lines */}
-            <div className="carousel-indicators">
-              {projectScreenshots.map((_, index) => (
-                <button
-                  key={index}
-                  className={`indicator-line ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                />
-              ))}
-            </div>
-          </div>
+          
           
           {/* Project Grid with staggered fade-in */}
           <div className="projects-grid fade-in-section">
@@ -482,6 +381,11 @@ const HomePage = () => {
                 key={project.id} 
                 className="project-card fade-in-section"
               >
+                <img 
+                  src={project.icon} 
+                  alt={`${project.title} icon`} 
+                  className="project-icon" 
+                />
                 <a 
                   href={project.githubUrl} 
                   target="_blank" 
@@ -503,6 +407,7 @@ const HomePage = () => {
           <footer style={{ textAlign: 'center', color: '#666', marginTop: '10rem', fontSize:'8px', }}>
             <p>Built and designed by Brandon Chau.</p>
             <p> All rights reserved. ©</p>
+            
           </footer>
         </div>
       </div>

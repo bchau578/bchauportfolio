@@ -3,14 +3,13 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #051536;
-  font-family: 'NTR', sans-serif;
+  background: rgb(254, 254, 254);
   height: 100%;
 }
 
 p {
   font-size: 25px;
-  font-family: 'NTR', sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
 .introContainer {
@@ -21,7 +20,6 @@ p {
   height: 100vh; /* This makes it take up the full viewport height */
   width: 100%;
   min-height: 600px; /* Minimum height for smaller screens */
-  font-family: 'NTR', sans-serif;
   /* Remove padding-top as we're using flex to center content vertically */
 }
 
@@ -30,20 +28,20 @@ p {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  font-family: 'NTR', sans-serif;
 }
 
 .introContent {
-  color: white;
+  color: #111828;
   box-sizing: border-box;
   height: auto; /* Changed from 100 to auto */
+  font-weight:800;
   align-items: center;
   justify-content: center;
   display: flex;
-  max-width: 600px;
   text-align: center;
-  font-family: 'NTR', sans-serif;
   margin-bottom: 20px; /* Add some space between elements */
+  font-size: 40px;
+  width:80%;
 }
 
 .introName {
@@ -57,7 +55,7 @@ p {
 .cursorBlinking {
   display: inline-block;
   color: rgb(53, 231, 147);
-  font-weight: bold;
+  font-weight: heavy;
   animation: blink 1s step-end infinite;
   font-size: 50px;
   border-radius: 10px;
@@ -72,24 +70,24 @@ p {
   }
 }
 
-p.introContent {
-  max-width: 600px;
-}
+
 
 #experienceSection {
   display: flex;
   color: white;
   flex-direction: column;
-  max-width: 1300px;
+  width:100%;
   margin: 100px auto 50px auto; /* Center horizontally and add space above and below */
   font-family: 'NTR', sans-serif;
-  width: 80%;
   padding: 0 20px; /* Padding on the sides for mobile */
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  background-color: #111828;
 }
 
 a {
-  color: rgb(53, 231, 147);
+  color: #111828;
   text-decoration: none;
   transition: color 0.5s ease, transform 0.5s ease; /* Fixed transition property */
   display: inline-block;
@@ -113,28 +111,24 @@ a:hover {
   transform: translateY(0);
 }
 
-.section-header {
-  position: relative;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  width: 80%;
-}
 
+.headshot{
+  height: 300px;
+  width: 300px;              /* make sure it's a square */
+  border: 10px solid #111828;
+  border-radius: 50%;        /* makes it a circle */
+  object-fit: cover; 
+  margin-bottom:30px;
+}
 .section-title {
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 75px;
+  font-weight: 800;
   margin-right: 15px; /* Space between the text and line */
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section-header::after {
-  content: "";
-  width:30%;
-  flex-grow: 1;
-  height: 1px; /* Thin line */
-  background: rgba(255, 255, 255, 0.2); /* Very faint white line */
-  display: inline-block;
-}
 
 /* Add responsive styles for smaller screens */
 @media (max-width: 768px) {
@@ -171,13 +165,13 @@ a:hover {
   padding: 15px;
   transition: all 0.3s ease;
   text-align: center;
-  border-left: 3px solid rgb(53, 231, 147); /* Green accent matching your theme */
+  border-left: 3px solid rgb(255, 121, 22); /* Green accent matching your theme */
 }
 
 .techItem span {
   color: white;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: heavy;
 }
 
 /* Add staggered delays based on data-delay attribute */
@@ -210,13 +204,16 @@ a:hover {
   gap: 40px; /* Space between content and image */
   align-items: flex-start; /* Align to the top */
   width: 1200px;
+  margin-bottom:20px;
 }
 
 /* Text content on the left */
 .aboutDescription {
   flex: 3; /* Takes up more space than the image */
-  font-size:12px;
-  width:600px
+  font-size:1px;
+  width:600px;
+  color:white;
+  font-weight:800;
 }
 
 /* Image container on the right */
@@ -234,9 +231,12 @@ a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 .aboutDescription p {
-  font-size: 24px; /* Smaller font size than your default 25px */
+  font-size: 22px; /* Smaller font size than your default 25px */
   line-height: 1.4; /* Proper line height for readability */
-  color:#828da9;
+  color:white;
+}
+#NETL{
+  color:rgb(255, 121, 22);
 }
 
 /* Make the layout responsive */
@@ -259,14 +259,26 @@ a:hover {
 
 /* Experience Section Styles */
 .experienceSection {
-  margin-top: 80px;
-  width: 95%;
+  margin-top: 100px;
+  padding-top:100px;
+  padding-bottom:100px;
+  width: 80%;
+  background-color: #111828;
+  color:white;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+
 }
 
 .experience-content-wrapper {
   display: flex;
   margin-top: 40px;
-  gap: 40px;
+  background-color: #111828;
+  color:white;
+  width: 1400px;
+  justify-content: center;
+  align-items: center;
 }
 
 .experience-tabs {
@@ -275,7 +287,7 @@ a:hover {
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  margin-right: 6px;; /* This keeps the outer edges rounded while inner edges remain flush */
+  margin-right: 6px; /* This keeps the outer edges rounded while inner edges remain flush */
 }
 
 .experience-tab span {
@@ -288,20 +300,21 @@ a:hover {
   position: relative;
   display: flex;
 }
+
 .tab-indicator {
   position: absolute;
   right: 0; /* Moved from left to right */
   width: 3px;
-  background-color: rgb(53, 231, 147);
+  background-color:#f6416f;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 4px 0 0 4px; /* Reversed border radius for left side rounding */
-  box-shadow: 0 0 8px rgba(53, 231, 147, 0.5);
+  box-shadow: 0 0 8px rgba(246, 65, 111, 1);
   z-index: 10;
 }
 .experience-tab {
   padding: 15px 20px;
   font-size: 22px;
-  color: #828da9;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 0;
@@ -322,7 +335,7 @@ a:hover {
 }
 
 .experience-tab.active-tab {
-  color: rgb(53, 231, 147);
+  color: #f6416f;
   font-weight: 500;
 }
 
@@ -334,7 +347,7 @@ a:hover {
   left: 50%;
   width: 0;
   height: 100%;
-  background: linear-gradient(to right, rgba(53, 231, 147, 0.3), rgba(53, 231, 147, 0));
+  background: linear-gradient(to right, #f6416f, rgba(53, 231, 147, 0));
   z-index: 1;
   transform-origin: left;
 }
@@ -347,7 +360,7 @@ a:hover {
   right: 50%;
   width: 0;
   height: 100%;
-  background: linear-gradient(to left, rgba(53, 231, 147, 0.3), rgba(53, 231, 147, 0));
+  background: linear-gradient(to left, #f6416f, rgba(53, 231, 147, 0));
   z-index: 2;
   transform-origin: right;
 }
@@ -397,10 +410,10 @@ a:hover {
 
 /* Updated role and company styling */
 .experience-role {
-  color: white;
+  color: #f6416f;
   font-size: 28px;
   margin: 0 0 5px 0;
-  font-weight: normal;
+  font-weight: 800;
 }
 
 /* The @ symbol stays white */
@@ -410,27 +423,30 @@ a:hover {
 
 /* Company name becomes green */
 .experience-role .company-name {
-  color: rgb(53, 231, 147);
+  color: white;
 }
 
 .experience-period {
-  color: #828da9;
+  color: white;
   font-size: 18px;
   margin: 0 0 20px 0;
+  font-weight: 800;
 }
 
 .experience-description {
   margin-bottom: 25px;
+  color:white;
+  font-weight:800;
 }
 
 .experience-description p {
-  color: #a5afc9;
+  color: white;
   font-size: 22px;
   line-height: 1.5;
 }
 
 .experience-skills h4 {
-  color: #828da9;
+  color: white;
   font-size: 20px;
   margin: 0 0 15px 0;
   font-weight: normal;
@@ -448,132 +464,19 @@ a:hover {
   padding: 8px 16px;
   font-size: 18px;
   color: #a5afc9;
-  border: 1px solid rgba(53, 231, 147, 0.3);
+  border: 1px solid #f6416f;
 }
 
-/* Projects Section Styles */
 .projectsSection {
-  margin-top: 100px;
-  width: 95%;
-  color: white;
-}
-
-/* NEW SLIDING CAROUSEL STYLES */
-.carousel-container {
   width: 100%;
-  max-width: 1000px;
-  margin: 40px auto 3rem auto;
-  position: relative;
+  color:#111828;
+  background-color:white;
+  padding:0;
+  margin:0;
+  min-width: 100vw;
 }
 
-.carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.02);
-}
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%; /* Track width is 100% of container */
-}
-
-.carousel-slide {
-  position: relative;
-  flex: 0 0 100%; /* Each slide takes 100% of container width */
-  width: 100%;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
-.carousel-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: white;
-  padding: 40px 30px 30px;
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-}
-
-.carousel-caption h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-}
-
-.carousel-caption p {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.9;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-}
-
-.carousel-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-btn-prev {
-  left: 20px;
-}
-
-.carousel-btn-next {
-  right: 20px;
-}
-
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.indicator-line {
-  width: 40px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
 
 .indicator-line.active {
   background: rgb(53, 231, 147);
@@ -588,22 +491,33 @@ a:hover {
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  grid-template-columns: repeat(3, minmax(350px, 1fr)); /* 3 columns, each at least 350px */
+  gap: 30px 10px;
+  margin: 0 auto;
+  padding:50px;
+}
+
+
+.project-icon {
+  width: 64px;
+  height: 64px;
+
 }
 
 .project-card {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  border-radius: 5px;
   padding: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border:3px solid #111828;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  width: 80%;
   opacity: 0;
   transform: translateY(30px);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .project-card.is-visible {
@@ -614,7 +528,7 @@ a:hover {
 .project-card:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(53, 231, 147, 0.3);
+  border-color: #9d3eed;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -635,28 +549,34 @@ a:hover {
 }
 
 .github-btn:hover {
-  background: rgba(53, 231, 147, 0.1);
-  border-color: rgb(53, 231, 147);
-  color: rgb(53, 231, 147);
+  border-color: #9d3eed;
+  color: #9d3eed;
   transform: scale(1.1);
 }
 
 .project-content {
-  margin-right: 60px; /* Leave space for the GitHub button */
+  
 }
 
 .project-title {
   font-size: 24px;
-  color: white;
+  color: #111828;
   margin: 0 0 15px 0;
-  font-weight: 600;
+  font-weight: 800;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-description {
   font-size: 18px;
-  color: #a5afc9;
+  color: #111828;
+  font-weight:800;
   line-height: 1.5;
   margin: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Ripple effect styles */
@@ -664,7 +584,7 @@ a:hover {
   position: absolute;
   width: 0;
   height: 0;
-  background-color: rgba(53, 231, 147, 0.3);
+  background-color: #f6416f;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;

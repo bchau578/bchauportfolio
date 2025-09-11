@@ -16,10 +16,9 @@ function Navbar() {
         <nav>
           <ul>
             <li className="HomeButton"><a href="/">brandon</a></li>
-            <li><a href="#home">home</a></li>
-            <li><a href="#About">about</a></li>
-            <li><a href="#Projects">projects</a></li>
-            <li><a href="#Contact">contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Projects">Projects</a></li>
             <li className="menu-button" onClick={showSidebar}>
               <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
               </a>
