@@ -16,7 +16,7 @@ function Navbar() {
         <nav>
           <ul>
             <li className="HomeButton"><a href="/">brandon</a></li>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#Home">Home</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Projects">Projects</a></li>
             <li className="menu-button" onClick={showSidebar}>
